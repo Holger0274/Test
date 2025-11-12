@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Wir helfen KMUs, künstliche Intelligenz in Geschäftsprozesse zu integrieren. Microsoft Copilot Training, KI-Automatisierung & Custom AI-Lösungen.">
     <meta name="keywords" content="KI-Integration, Microsoft Copilot Training, KI-Automatisierung für KMUs, AI-Beratung, Generative KI Schulung">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#031d44">
     <title>AI.mation – KI-Integration & Microsoft Copilot Training für KMUs</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="ai.mation-logo.svg">
+    <link rel="alternate icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="ai.mation-logo.svg">
 
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="AI.mation – KI-Integration & Microsoft Copilot Training für KMUs">
@@ -42,9 +49,12 @@
         }
     </script>
 
-    <!-- Google Fonts -->
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+
+    <!-- Google Fonts with font-display:swap for performance -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
@@ -109,7 +119,7 @@
     <nav id="navigation" class="fixed w-full top-0 z-50 bg-navy/95 backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="bg-white px-4 py-2 rounded-lg"><img src="ai.mation-logo.svg" alt="AI.mation" class="h-8"></div>
+                <div class="bg-white px-4 py-2 rounded-lg"><img src="ai.mation-logo.svg" alt="AI.mation Logo - KI-Integration und Microsoft Copilot Training für KMUs" class="h-8"></div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#services" class="text-white hover:text-light-blue transition">Services</a>
                     <a href="#schulungen" class="text-white hover:text-light-blue transition">Schulungen</a>
@@ -192,8 +202,8 @@
 
             <!-- Scroll Indicator -->
             <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-                <a href="#problem-solution" class="text-light-blue animate-bounce inline-block">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="#problem-solution" class="text-light-blue animate-bounce inline-block" aria-label="Nach unten scrollen zum nächsten Abschnitt">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
                     </svg>
                 </a>
@@ -623,9 +633,9 @@
                         </p>
 
                         <!-- Read More Link -->
-                        <a href="#" class="inline-flex items-center gap-2 text-magenta font-semibold hover:text-light-blue transition">
+                        <a href="#" class="inline-flex items-center gap-2 text-magenta font-semibold hover:text-light-blue transition" aria-label="Weiterlesen: 5 KI-Tools, die jedes KMU 2025 nutzen sollte">
                             Weiterlesen
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
                         </a>
@@ -658,9 +668,9 @@
                         </p>
 
                         <!-- Read More Link -->
-                        <a href="#" class="inline-flex items-center gap-2 text-magenta font-semibold hover:text-light-blue transition">
+                        <a href="#" class="inline-flex items-center gap-2 text-magenta font-semibold hover:text-light-blue transition" aria-label="Weiterlesen: Microsoft Copilot ROI - So rechtfertigst du die Investition">
                             Weiterlesen
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
                         </a>
@@ -693,9 +703,9 @@
                         </p>
 
                         <!-- Read More Link -->
-                        <a href="#" class="inline-flex items-center gap-2 text-magenta font-semibold hover:text-light-blue transition">
+                        <a href="#" class="inline-flex items-center gap-2 text-magenta font-semibold hover:text-light-blue transition" aria-label="Weiterlesen: Make.com vs. n8n - Welches Tool passt zu deinem Business?">
                             Weiterlesen
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
                         </a>
@@ -766,6 +776,7 @@
                                 id="firstname"
                                 name="firstname"
                                 required
+                                aria-required="true"
                                 class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-light-blue focus:outline-none transition"
                                 placeholder="Max"
                             >
@@ -781,6 +792,7 @@
                                 id="lastname"
                                 name="lastname"
                                 required
+                                aria-required="true"
                                 class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-light-blue focus:outline-none transition"
                                 placeholder="Mustermann"
                             >
@@ -796,6 +808,7 @@
                                 id="company"
                                 name="company"
                                 required
+                                aria-required="true"
                                 class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-light-blue focus:outline-none transition"
                                 placeholder="Mustermann GmbH"
                             >
@@ -810,6 +823,7 @@
                                 id="industry"
                                 name="industry"
                                 required
+                                aria-required="true"
                                 class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-light-blue focus:outline-none transition appearance-none bg-white"
                             >
                                 <option value="">Bitte auswählen</option>
@@ -833,6 +847,7 @@
                                 id="email"
                                 name="email"
                                 required
+                                aria-required="true"
                                 class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-light-blue focus:outline-none transition"
                                 placeholder="max@mustermann.de"
                             >
@@ -900,7 +915,7 @@
                 <!-- Column 1: About AI.mation -->
                 <div>
                     <div class="mb-4">
-                        <div class="bg-white px-4 py-2 rounded-lg inline-block"><img src="ai.mation-logo.svg" alt="AI.mation" class="h-10"></div>
+                        <div class="bg-white px-4 py-2 rounded-lg inline-block"><img src="ai.mation-logo.svg" alt="AI.mation Logo - KI-Integration und Microsoft Copilot Training für KMUs" class="h-10"></div>
                         <p class="text-light-blue text-sm font-semibold mt-1">Automatisierung mit Intelligenz</p>
                     </div>
                     <p class="text-white/90 text-sm leading-relaxed">
