@@ -66,16 +66,11 @@ This is a landing page project designed to be implemented using **HTML + Tailwin
 
 The landing page consists of 7 main sections (see AI-MATION-LANDING-PAGE-PLAN.md:33 for full details):
 
-1. **Hero Section** - Full-viewport height with main value proposition and primary CTA
-2. **Problem/Solution Section** - Two-column layout addressing SME pain points
-3. **Services Section** - Grid of 5 service cards showcasing core offerings
-4. **Schulungsangebot (Training) Section** - 4 training packages for different organizational levels
-5. **Blog Section** - Placeholder for future content marketing (3-card grid)
-6. **Lead Magnet Form** - Contact form for lead generation with KI-potential analysis offer
-7. **Footer** - 4-column layout with links, contact info, and legal pages
+
+
 
 ## Content Strategy
-
+1
 ### Tone of Voice
 
 - **Du-Ansprache** (informal "you" in German) throughout for relatability
