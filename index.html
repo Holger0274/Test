@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Wir helfen KMUs, künstliche Intelligenz in Geschäftsprozesse zu integrieren. Microsoft Copilot Training, KI-Automatisierung & Custom AI-Lösungen.">
     <meta name="keywords" content="KI-Integration, Microsoft Copilot Training, KI-Automatisierung für KMUs, AI-Beratung, Generative KI Schulung">
+    <meta name="author" content="AI.mation">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="de">
     <title>AI.mation – KI-Integration & Microsoft Copilot Training für KMUs</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="ai.mation-logo.svg">
 
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="AI.mation – KI-Integration & Microsoft Copilot Training für KMUs">
@@ -13,6 +19,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ai-mation.de">
     <meta property="og:image" content="https://ai-mation.de/ai.mation-logo.svg">
+    <meta property="og:locale" content="de_DE">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI.mation – KI-Integration & Microsoft Copilot Training">
     <meta name="twitter:description" content="Praxisnahe KI-Integration für KMUs – ohne Konzern-Overhead.">
@@ -22,6 +29,18 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- EmailJS SDK - UNCOMMENT when ready to activate form submission -->
+    <!--
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            // Initialize EmailJS with your Public Key
+            // Get your key from: https://dashboard.emailjs.com/admin/account
+            emailjs.init("YOUR_PUBLIC_KEY_HERE");
+        })();
+    </script>
+    -->
 
     <!-- Tailwind Config with Custom Colors -->
     <script>
@@ -46,6 +65,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Preload critical font -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" as="font" type="font/woff2" crossorigin>
 
     <style>
         /* Custom Styles */
@@ -109,20 +131,22 @@
     <nav id="navigation" class="fixed w-full top-0 z-50 bg-navy/95 backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="bg-white px-4 py-2 rounded-lg"><img src="ai.mation-logo.svg" alt="AI.mation" class="h-8"></div>
+                <div class="bg-white px-4 py-2 rounded-lg"><img src="ai.mation-logo.svg" alt="AI.mation Logo - KI-Integration und Microsoft Copilot Training für KMUs" width="120" height="32" class="h-8"></div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#services" class="text-white hover:text-light-blue transition">Services</a>
                     <a href="#schulungen" class="text-white hover:text-light-blue transition">Schulungen</a>
-                    <a href="#blog" class="text-white hover:text-light-blue transition">Blog</a>
-                    <a href="#kontakt" class="text-white hover:text-light-blue transition">Kontakt</a>
+                    <a href="#lead-magnet" class="text-white hover:text-light-blue transition">Kontakt</a>
                 </div>
                 <a href="#lead-magnet" class="hidden md:block bg-magenta text-white px-6 py-2 rounded-lg font-semibold hover:bg-light-blue transition">
                     Termin buchen
                 </a>
                 <!-- Mobile menu button -->
                 <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
@@ -131,8 +155,7 @@
                 <div class="px-6 py-4 space-y-3">
                     <a href="#services" class="block text-white hover:text-light-blue transition py-2">Services</a>
                     <a href="#schulungen" class="block text-white hover:text-light-blue transition py-2">Schulungen</a>
-                    <a href="#blog" class="block text-white hover:text-light-blue transition py-2">Blog</a>
-                    <a href="#kontakt" class="block text-white hover:text-light-blue transition py-2">Kontakt</a>
+                    <a href="#lead-magnet" class="block text-white hover:text-light-blue transition py-2">Kontakt</a>
                     <a href="#lead-magnet" class="block bg-magenta text-white px-6 py-2 rounded-lg font-semibold hover:bg-light-blue transition text-center mt-4">
                         Termin buchen
                     </a>
@@ -150,16 +173,14 @@
 
             <!-- Main Headline -->
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
-                KI integrieren.<br>
-                Prozesse automatisieren.<br>
-                Wettbewerbsvorteile sichern.
+                KI integrieren, Prozesse automatisieren, Wettbewerbsvorteile sichern
             </h1>
 
             <!-- Sub-Headline -->
-            <p class="text-lg md:text-xl lg:text-2xl text-white/95 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <h2 class="text-lg md:text-xl lg:text-2xl text-white/95 max-w-3xl mx-auto mb-10 leading-relaxed font-normal">
                 Wir helfen KMUs, künstliche Intelligenz vollständig in ihre Geschäftsprozesse zu integrieren –
                 praxisnah, schnell und ohne Konzern-Overhead.
-            </p>
+            </h2>
 
             <!-- Primary CTA Button -->
             <div class="mb-12">
@@ -415,6 +436,133 @@
         </div>
     </section>
 
+    <!-- Testimonials Section - Added in Phase 2 Optimization -->
+    <section id="testimonials" class="py-20 md:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- Section Heading -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-4">
+                    Was unsere Kunden sagen
+                </h2>
+                <p class="text-xl text-dark/70">
+                    Echte Ergebnisse, echtes Feedback
+                </p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Testimonial 1 - PLACEHOLDER -->
+                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-light-blue">
+                    <!-- Quote Icon -->
+                    <svg class="w-10 h-10 text-light-blue/30 mb-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    </svg>
+
+                    <!-- Testimonial Text -->
+                    <p class="text-dark leading-relaxed mb-6 italic">
+                        "Das Microsoft Copilot Training hat unser Team transformiert. Innerhalb von 2 Wochen haben wir messbare Produktivitätssteigerungen gesehen – vor allem in Excel und PowerPoint."
+                    </p>
+
+                    <!-- Rating -->
+                    <div class="flex gap-1 mb-4">
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+
+                    <!-- Author Info -->
+                    <div class="flex items-center gap-4">
+                        <!-- Avatar Placeholder -->
+                        <div class="w-12 h-12 bg-gradient-to-br from-light-blue to-navy rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold text-lg">MS</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-navy">Maria Schmidt</p>
+                            <p class="text-sm text-dark/60">Geschäftsführerin, TechSolutions GmbH</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 - PLACEHOLDER -->
+                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-light-blue">
+                    <!-- Quote Icon -->
+                    <svg class="w-10 h-10 text-light-blue/30 mb-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    </svg>
+
+                    <!-- Testimonial Text -->
+                    <p class="text-dark leading-relaxed mb-6 italic">
+                        "Die Prozessautomatisierung mit make.com hat uns über 15 Stunden pro Woche gespart. ROI nach nur 6 Wochen. Absolut empfehlenswert!"
+                    </p>
+
+                    <!-- Rating -->
+                    <div class="flex gap-1 mb-4">
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+
+                    <!-- Author Info -->
+                    <div class="flex items-center gap-4">
+                        <!-- Avatar Placeholder -->
+                        <div class="w-12 h-12 bg-gradient-to-br from-magenta to-light-blue rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold text-lg">TK</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-navy">Thomas Krüger</p>
+                            <p class="text-sm text-dark/60">Vertriebsleiter, MittelstandPlus AG</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 - PLACEHOLDER -->
+                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-light-blue">
+                    <!-- Quote Icon -->
+                    <svg class="w-10 h-10 text-light-blue/30 mb-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    </svg>
+
+                    <!-- Testimonial Text -->
+                    <p class="text-dark leading-relaxed mb-6 italic">
+                        "Endlich jemand, der KI-Beratung auf Augenhöhe macht – keine PowerPoint-Schlacht, sondern echte Umsetzung. Unser Custom AI-Agent läuft seit 3 Monaten perfekt."
+                    </p>
+
+                    <!-- Rating -->
+                    <div class="flex gap-1 mb-4">
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-magenta" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.954.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+
+                    <!-- Author Info -->
+                    <div class="flex items-center gap-4">
+                        <!-- Avatar Placeholder -->
+                        <div class="w-12 h-12 bg-gradient-to-br from-navy to-light-blue rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold text-lg">JW</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-navy">Julia Weber</p>
+                            <p class="text-sm text-dark/60">Head of Operations, SmartRetail GmbH</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Note for replacing testimonials -->
+            <!-- TODO: Replace these placeholder testimonials with real customer feedback -->
+
+        </div>
+    </section>
+
     <!-- Schulungsangebot Section - Phase 5 -->
     <section id="schulungen" class="py-20 md:py-32 bg-white">
         <div class="max-w-7xl mx-auto px-6">
@@ -580,7 +728,128 @@
         </div>
     </section>
 
-    <!-- Blog Section - Phase 6 -->
+    <!-- FAQ Section - Added in Phase 2 Optimization -->
+    <section id="faq" class="py-20 md:py-32 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+
+            <!-- Section Heading -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-4">
+                    Häufig gestellte Fragen
+                </h2>
+                <p class="text-xl text-dark/70">
+                    Alles, was du über KI-Integration wissen musst
+                </p>
+            </div>
+
+            <!-- FAQ Items -->
+            <div class="space-y-4">
+
+                <!-- FAQ Item 1 -->
+                <div class="faq-item border-2 border-gray-200 rounded-xl overflow-hidden hover:border-light-blue transition-all duration-300">
+                    <button class="faq-question w-full text-left px-6 py-5 flex justify-between items-center bg-white hover:bg-gray-50 transition" aria-expanded="false">
+                        <span class="text-lg font-bold text-navy pr-8">Was kostet ein Microsoft Copilot Training?</span>
+                        <svg class="faq-icon w-6 h-6 text-light-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <p class="text-dark/80 leading-relaxed">
+                            Die Kosten variieren je nach Umfang, Teilnehmerzahl und gewünschter Tiefe. Ein Halbtags-Workshop für bis zu 10 Personen startet bei ca. 1.500€. Für individuelle Angebote kontaktiere uns gerne – wir schneiden jedes Training auf deine spezifischen Bedürfnisse zu.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item border-2 border-gray-200 rounded-xl overflow-hidden hover:border-light-blue transition-all duration-300">
+                    <button class="faq-question w-full text-left px-6 py-5 flex justify-between items-center bg-white hover:bg-gray-50 transition" aria-expanded="false">
+                        <span class="text-lg font-bold text-navy pr-8">Wie lange dauert die KI-Integration in meinem Unternehmen?</span>
+                        <svg class="faq-icon w-6 h-6 text-light-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <p class="text-dark/80 leading-relaxed">
+                            Wir erstellen erste Proof-of-Concepts (PoCs) in 2-4 Wochen. Die vollständige Integration hängt von deinen spezifischen Anforderungen ab. Unser Ansatz: Schnelle Quick Wins innerhalb weniger Wochen, gefolgt von schrittweiser Erweiterung. Keine monatelangen Projekte – du siehst Ergebnisse sofort.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item border-2 border-gray-200 rounded-xl overflow-hidden hover:border-light-blue transition-all duration-300">
+                    <button class="faq-question w-full text-left px-6 py-5 flex justify-between items-center bg-white hover:bg-gray-50 transition" aria-expanded="false">
+                        <span class="text-lg font-bold text-navy pr-8">Brauche ich eine IT-Abteilung, um KI zu nutzen?</span>
+                        <svg class="faq-icon w-6 h-6 text-light-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <p class="text-dark/80 leading-relaxed">
+                            Nein! Genau dafür sind wir da. Wir setzen auf No-Code/Low-Code-Lösungen (make.com, n8n, Microsoft Copilot), die deine Teams ohne IT-Kenntnisse nutzen können. Wir schulen deine Mitarbeiter so, dass sie autonom arbeiten können – keine Abhängigkeit von externen Entwicklern.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item border-2 border-gray-200 rounded-xl overflow-hidden hover:border-light-blue transition-all duration-300">
+                    <button class="faq-question w-full text-left px-6 py-5 flex justify-between items-center bg-white hover:bg-gray-50 transition" aria-expanded="false">
+                        <span class="text-lg font-bold text-navy pr-8">Wie messe ich den ROI von KI-Investitionen?</span>
+                        <svg class="faq-icon w-6 h-6 text-light-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <p class="text-dark/80 leading-relaxed">
+                            Wir definieren von Anfang an messbare KPIs: Zeitersparnis pro Aufgabe, Reduktion von Fehlerquoten, Kostenersparnis durch Automatisierung. Bei Microsoft Copilot sehen Unternehmen durchschnittlich 30% Produktivitätssteigerung – das sind konkrete, nachweisbare Ergebnisse, keine Versprechungen.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item border-2 border-gray-200 rounded-xl overflow-hidden hover:border-light-blue transition-all duration-300">
+                    <button class="faq-question w-full text-left px-6 py-5 flex justify-between items-center bg-white hover:bg-gray-50 transition" aria-expanded="false">
+                        <span class="text-lg font-bold text-navy pr-8">Ist mein Unternehmen groß genug für KI?</span>
+                        <svg class="faq-icon w-6 h-6 text-light-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <p class="text-dark/80 leading-relaxed">
+                            Ja! KI ist gerade für KMUs ein Game-Changer. Du musst nicht hunderte Mitarbeiter haben. Schon ab 5-10 Personen lohnt sich die Automatisierung repetitiver Aufgaben. Kleine Teams profitieren sogar mehr – jede gesparte Stunde zählt doppelt.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item border-2 border-gray-200 rounded-xl overflow-hidden hover:border-light-blue transition-all duration-300">
+                    <button class="faq-question w-full text-left px-6 py-5 flex justify-between items-center bg-white hover:bg-gray-50 transition" aria-expanded="false">
+                        <span class="text-lg font-bold text-navy pr-8">Was unterscheidet euch von anderen KI-Beratern?</span>
+                        <svg class="faq-icon w-6 h-6 text-light-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-5">
+                        <p class="text-dark/80 leading-relaxed">
+                            Keine Konzern-Consulting-Sprache. Keine 200-seitigen PowerPoints. Wir sind selbst aus KMUs und kennen die Realität: knappe Ressourcen, schneller ROI gefordert, pragmatische Lösungen statt Theorie. Du bekommst hands-on Unterstützung, keine Strategiepapiere.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center mt-12">
+                <p class="text-dark/70 mb-6">Noch Fragen? Wir beantworten sie gerne persönlich.</p>
+                <a href="#lead-magnet" class="inline-block bg-magenta text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-light-blue transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    KOSTENLOSES ERSTGESPRÄCH BUCHEN
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Blog Section - Phase 6 (TEMPORARILY HIDDEN - Activate when real blog posts are available) -->
+    <!--
     <section id="blog" class="py-20 md:py-32 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6">
 
@@ -623,7 +892,7 @@
                         </p>
 
                         <!-- Read More Link -->
-                        <a href="#" class="inline-flex items-center gap-2 text-magenta font-semibold hover:text-light-blue transition">
+                        <a href="#" class="inline-flex items-center gap-2 text-magenta font-bold hover:text-light-blue transition">
                             Weiterlesen
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -658,7 +927,7 @@
                         </p>
 
                         <!-- Read More Link -->
-                        <a href="#" class="inline-flex items-center gap-2 text-magenta font-semibold hover:text-light-blue transition">
+                        <a href="#" class="inline-flex items-center gap-2 text-magenta font-bold hover:text-light-blue transition">
                             Weiterlesen
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -693,7 +962,7 @@
                         </p>
 
                         <!-- Read More Link -->
-                        <a href="#" class="inline-flex items-center gap-2 text-magenta font-semibold hover:text-light-blue transition">
+                        <a href="#" class="inline-flex items-center gap-2 text-magenta font-bold hover:text-light-blue transition">
                             Weiterlesen
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -713,6 +982,7 @@
 
         </div>
     </section>
+    -->
 
     <!-- Lead Magnet Form Section - Phase 7 -->
     <section id="lead-magnet" class="py-20 md:py-32 bg-gradient-to-br from-navy to-navy/90">
@@ -754,35 +1024,21 @@
 
                 <!-- Right Column: Contact Form -->
                 <div class="bg-white rounded-2xl p-8 shadow-2xl">
-                    <form class="space-y-5">
+                    <form class="space-y-5" id="lead-form" aria-label="KI-Potenzialanalyse Kontaktformular">
 
-                        <!-- First Name -->
+                        <!-- Full Name (combined) -->
                         <div>
-                            <label for="firstname" class="block text-sm font-semibold text-navy mb-2">
-                                Vorname *
+                            <label for="fullname" class="block text-sm font-semibold text-navy mb-2">
+                                Name *
                             </label>
                             <input
                                 type="text"
-                                id="firstname"
-                                name="firstname"
+                                id="fullname"
+                                name="fullname"
                                 required
+                                aria-required="true"
                                 class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-light-blue focus:outline-none transition"
-                                placeholder="Max"
-                            >
-                        </div>
-
-                        <!-- Last Name -->
-                        <div>
-                            <label for="lastname" class="block text-sm font-semibold text-navy mb-2">
-                                Nachname *
-                            </label>
-                            <input
-                                type="text"
-                                id="lastname"
-                                name="lastname"
-                                required
-                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-light-blue focus:outline-none transition"
-                                placeholder="Mustermann"
+                                placeholder="Max Mustermann"
                             >
                         </div>
 
@@ -796,31 +1052,10 @@
                                 id="company"
                                 name="company"
                                 required
+                                aria-required="true"
                                 class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-light-blue focus:outline-none transition"
                                 placeholder="Mustermann GmbH"
                             >
-                        </div>
-
-                        <!-- Industry -->
-                        <div>
-                            <label for="industry" class="block text-sm font-semibold text-navy mb-2">
-                                Branche *
-                            </label>
-                            <select
-                                id="industry"
-                                name="industry"
-                                required
-                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-light-blue focus:outline-none transition appearance-none bg-white"
-                            >
-                                <option value="">Bitte auswählen</option>
-                                <option value="it-tech">IT/Tech</option>
-                                <option value="consulting">Beratung</option>
-                                <option value="handwerk">Handwerk</option>
-                                <option value="handel">Handel</option>
-                                <option value="gesundheit">Gesundheit</option>
-                                <option value="bildung">Bildung</option>
-                                <option value="sonstiges">Sonstiges</option>
-                            </select>
                         </div>
 
                         <!-- Email -->
@@ -833,36 +1068,25 @@
                                 id="email"
                                 name="email"
                                 required
+                                aria-required="true"
                                 class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-light-blue focus:outline-none transition"
                                 placeholder="max@mustermann.de"
                             >
                         </div>
 
-                        <!-- Phone (Optional) -->
-                        <div>
-                            <label for="phone" class="block text-sm font-semibold text-navy mb-2">
-                                Telefonnummer (Optional)
-                            </label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-light-blue focus:outline-none transition"
-                                placeholder="+49 123 4567890"
-                            >
-                        </div>
-
-                        <!-- Message (Optional) -->
+                        <!-- Message -->
                         <div>
                             <label for="message" class="block text-sm font-semibold text-navy mb-2">
-                                Nachricht (Optional)
+                                Deine größte KI-Herausforderung *
                             </label>
                             <textarea
                                 id="message"
                                 name="message"
                                 rows="4"
+                                required
+                                aria-required="true"
                                 class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-light-blue focus:outline-none transition resize-none"
-                                placeholder="Was ist deine größte Herausforderung bei der KI-Integration?"
+                                placeholder="z.B. Wir wissen nicht, wo wir anfangen sollen..."
                             ></textarea>
                         </div>
 
@@ -870,13 +1094,19 @@
                         <button
                             type="submit"
                             class="w-full bg-magenta text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-light-blue transition-all duration-300 transform hover:scale-105 shadow-lg"
+                            aria-label="Kostenlose KI-Potenzialanalyse anfragen"
                         >
-                            KI-POTENZIAL ANALYSIEREN
+                            GRATIS-ANALYSE ANFRAGEN
                         </button>
+
+                        <!-- Success Message (hidden by default) -->
+                        <div id="form-success" class="hidden p-4 bg-light-blue/10 border-2 border-light-blue rounded-lg text-center" role="alert" aria-live="polite">
+                            <p class="text-navy font-semibold">✓ Vielen Dank! Wir melden uns in Kürze bei dir.</p>
+                        </div>
 
                         <!-- Privacy Notice -->
                         <p class="text-xs text-dark/60 text-center flex items-center justify-center gap-2">
-                            <svg class="w-4 h-4 text-light-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-4 h-4 text-light-blue" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
                             Wir respektieren deine Daten. Keine Weitergabe an Dritte.
@@ -900,7 +1130,7 @@
                 <!-- Column 1: About AI.mation -->
                 <div>
                     <div class="mb-4">
-                        <div class="bg-white px-4 py-2 rounded-lg inline-block"><img src="ai.mation-logo.svg" alt="AI.mation" class="h-10"></div>
+                        <div class="bg-white px-4 py-2 rounded-lg inline-block"><img src="ai.mation-logo.svg" alt="AI.mation Logo - KI-Integration und Microsoft Copilot Training für KMUs" width="150" height="40" class="h-10" loading="lazy"></div>
                         <p class="text-light-blue text-sm font-semibold mt-1">Automatisierung mit Intelligenz</p>
                     </div>
                     <p class="text-white/90 text-sm leading-relaxed">
@@ -972,28 +1202,28 @@
                     </a>
                 </div>
 
-                <!-- Column 4: Social & Legal -->
+                <!-- Column 4: Legal -->
                 <div>
+                    <!-- Social Media Links - TEMPORARILY HIDDEN (Activate when social profiles are live)
                     <h4 class="text-white font-bold text-lg mb-4">Folge uns</h4>
-
-                    <!-- Social Media Links -->
                     <div class="flex gap-3 mb-6">
-                        <a href="#" class="w-10 h-10 bg-light-blue/10 rounded-lg flex items-center justify-center hover:bg-light-blue transition group">
+                        <a href="https://linkedin.com/company/ai-mation" class="w-10 h-10 bg-light-blue/10 rounded-lg flex items-center justify-center hover:bg-light-blue transition group" aria-label="LinkedIn">
                             <svg class="w-5 h-5 text-light-blue group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                             </svg>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-light-blue/10 rounded-lg flex items-center justify-center hover:bg-light-blue transition group">
+                        <a href="https://twitter.com/aimation" class="w-10 h-10 bg-light-blue/10 rounded-lg flex items-center justify-center hover:bg-light-blue transition group" aria-label="Twitter/X">
                             <svg class="w-5 h-5 text-light-blue group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                             </svg>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-light-blue/10 rounded-lg flex items-center justify-center hover:bg-light-blue transition group">
+                        <a href="https://youtube.com/@aimation" class="w-10 h-10 bg-light-blue/10 rounded-lg flex items-center justify-center hover:bg-light-blue transition group" aria-label="YouTube">
                             <svg class="w-5 h-5 text-light-blue group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                             </svg>
                         </a>
                     </div>
+                    -->
 
                     <!-- Legal Links -->
                     <h4 class="text-white font-bold text-sm mb-3">Rechtliches</h4>
@@ -1045,10 +1275,84 @@
         "@type": "ContactPoint",
         "email": "kontakt@ai-mation.de",
         "contactType": "customer service",
-        "availableLanguage": "German"
+        "availableLanguage": ["de", "German"]
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Deutschland"
+      },
+      "serviceType": ["KI-Integration", "Microsoft Copilot Training", "Prozessautomatisierung", "AI-Beratung"],
+      "knowsAbout": ["Artificial Intelligence", "Microsoft Copilot", "Process Automation", "AI Training"]
+    }
+    </script>
+
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Microsoft Copilot Training",
+      "provider": {
+        "@type": "Organization",
+        "name": "AI.mation"
       },
       "areaServed": "DE",
-      "serviceType": ["KI-Integration", "Microsoft Copilot Training", "Prozessautomatisierung", "AI-Beratung"]
+      "description": "Praxisnahe Microsoft Copilot Trainings für KMU-Teams zur Steigerung der Produktivität",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Was kostet ein Microsoft Copilot Training?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die Kosten variieren je nach Umfang, Teilnehmerzahl und gewünschter Tiefe. Ein Halbtags-Workshop für bis zu 10 Personen startet bei ca. 1.500€. Für individuelle Angebote kontaktiere uns gerne – wir schneiden jedes Training auf deine spezifischen Bedürfnisse zu."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Wie lange dauert die KI-Integration in meinem Unternehmen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wir erstellen erste Proof-of-Concepts (PoCs) in 2-4 Wochen. Die vollständige Integration hängt von deinen spezifischen Anforderungen ab. Unser Ansatz: Schnelle Quick Wins innerhalb weniger Wochen, gefolgt von schrittweiser Erweiterung."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Brauche ich eine IT-Abteilung, um KI zu nutzen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein! Genau dafür sind wir da. Wir setzen auf No-Code/Low-Code-Lösungen (make.com, n8n, Microsoft Copilot), die deine Teams ohne IT-Kenntnisse nutzen können."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Wie messe ich den ROI von KI-Investitionen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wir definieren von Anfang an messbare KPIs: Zeitersparnis pro Aufgabe, Reduktion von Fehlerquoten, Kostenersparnis durch Automatisierung. Bei Microsoft Copilot sehen Unternehmen durchschnittlich 30% Produktivitätssteigerung."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Ist mein Unternehmen groß genug für KI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja! KI ist gerade für KMUs ein Game-Changer. Du musst nicht hunderte Mitarbeiter haben. Schon ab 5-10 Personen lohnt sich die Automatisierung repetitiver Aufgaben."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Was unterscheidet euch von anderen KI-Beratern?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Keine Konzern-Consulting-Sprache. Keine 200-seitigen PowerPoints. Wir sind selbst aus KMUs und kennen die Realität: knappe Ressourcen, schneller ROI gefordert, pragmatische Lösungen statt Theorie."
+        }
+      }]
     }
     </script>
 
@@ -1057,6 +1361,8 @@
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconOpen = document.getElementById('menu-icon-open');
+        const menuIconClose = document.getElementById('menu-icon-close');
 
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', function() {
@@ -1064,6 +1370,10 @@
 
                 // Toggle menu visibility
                 mobileMenu.classList.toggle('active');
+
+                // Toggle icons
+                menuIconOpen.classList.toggle('hidden');
+                menuIconClose.classList.toggle('hidden');
 
                 // Update ARIA attributes
                 this.setAttribute('aria-expanded', !isExpanded);
@@ -1075,6 +1385,8 @@
             mobileLinks.forEach(link => {
                 link.addEventListener('click', function() {
                     mobileMenu.classList.remove('active');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
                     mobileMenuBtn.setAttribute('aria-label', 'Menü öffnen');
                 });
@@ -1085,6 +1397,8 @@
                 if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
                     if (mobileMenu.classList.contains('active')) {
                         mobileMenu.classList.remove('active');
+                        menuIconOpen.classList.remove('hidden');
+                        menuIconClose.classList.add('hidden');
                         mobileMenuBtn.setAttribute('aria-expanded', 'false');
                         mobileMenuBtn.setAttribute('aria-label', 'Menü öffnen');
                     }
@@ -1106,39 +1420,173 @@
             });
         });
 
-        // Form validation (basic client-side)
-        const leadForm = document.querySelector('form');
+        // ============================================================================
+        // FORM SUBMISSION HANDLER
+        // ============================================================================
+        // Current Status: DEMO MODE (shows success message but doesn't send email)
+        //
+        // TO ACTIVATE EMAIL SENDING WITH EmailJS:
+        //
+        // 1. Create EmailJS Account:
+        //    - Go to https://www.emailjs.com/
+        //    - Sign up for free account
+        //    - Verify your email
+        //
+        // 2. Create Email Service:
+        //    - Go to https://dashboard.emailjs.com/admin
+        //    - Click "Add New Service"
+        //    - Choose Gmail/Outlook/etc.
+        //    - Connect your email account
+        //    - Copy your SERVICE_ID (e.g., "service_abc123")
+        //
+        // 3. Create Email Template:
+        //    - Go to https://dashboard.emailjs.com/admin/templates
+        //    - Click "Create New Template"
+        //    - Use these template variables:
+        //      {{fullname}} - Customer name
+        //      {{company}} - Company name
+        //      {{email}} - Customer email
+        //      {{message}} - Customer message
+        //    - Example template:
+        //      Subject: Neue Anfrage von {{fullname}} ({{company}})
+        //      Body:
+        //        Neue KI-Potenzialanalyse Anfrage:
+        //
+        //        Name: {{fullname}}
+        //        Firma: {{company}}
+        //        E-Mail: {{email}}
+        //
+        //        Nachricht:
+        //        {{message}}
+        //    - Copy your TEMPLATE_ID (e.g., "template_xyz789")
+        //
+        // 4. Get Public Key:
+        //    - Go to https://dashboard.emailjs.com/admin/account
+        //    - Copy your Public Key
+        //
+        // 5. Uncomment EmailJS SDK in <head> section (line 33-43)
+        //    - Replace "YOUR_PUBLIC_KEY_HERE" with your actual public key
+        //
+        // 6. Replace the form submission code below with this:
+        //
+        //    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+        //        fullname: fullname,
+        //        company: company,
+        //        email: email,
+        //        message: message
+        //    })
+        //    .then(function(response) {
+        //        console.log('Email sent successfully!', response);
+        //        // Show success message
+        //        successMessage.classList.remove('hidden');
+        //        // Disable form fields
+        //        leadForm.querySelectorAll('input, textarea, button[type="submit"]').forEach(el => {
+        //            if (el.type !== 'submit') el.disabled = true;
+        //            el.style.opacity = '0.5';
+        //        });
+        //    }, function(error) {
+        //        console.error('Email send failed:', error);
+        //        alert('Fehler beim Senden. Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail.');
+        //    });
+        //
+        // ============================================================================
+
+        const leadForm = document.getElementById('lead-form');
         if (leadForm) {
             leadForm.addEventListener('submit', function(e) {
                 e.preventDefault();
 
                 // Get form values
-                const firstname = document.getElementById('firstname').value.trim();
-                const lastname = document.getElementById('lastname').value.trim();
+                const fullname = document.getElementById('fullname').value.trim();
                 const company = document.getElementById('company').value.trim();
-                const industry = document.getElementById('industry').value;
                 const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
 
                 // Basic validation
-                if (!firstname || !lastname || !company || !industry || !email) {
-                    alert('Bitte fülle alle Pflichtfelder aus.');
+                if (!fullname || !company || !email || !message) {
+                    // Show error in accessible way
+                    const firstEmpty = !fullname ? document.getElementById('fullname') :
+                                      !company ? document.getElementById('company') :
+                                      !email ? document.getElementById('email') :
+                                      document.getElementById('message');
+                    firstEmpty.focus();
+                    firstEmpty.classList.add('border-red-500');
+                    setTimeout(() => firstEmpty.classList.remove('border-red-500'), 3000);
                     return;
                 }
 
                 // Email validation
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(email)) {
-                    alert('Bitte gib eine gültige E-Mail-Adresse ein.');
+                    const emailField = document.getElementById('email');
+                    emailField.focus();
+                    emailField.classList.add('border-red-500');
+                    setTimeout(() => emailField.classList.remove('border-red-500'), 3000);
                     return;
                 }
 
-                // Form is valid - show success message (backend integration needed)
-                alert('Vielen Dank für deine Anfrage! Wir melden uns in Kürze bei dir.\n\n(Hinweis: Backend-Integration noch ausstehend)');
+                // ============================================================================
+                // REPLACE THIS SECTION WITH EmailJS CODE (see instructions above)
+                // ============================================================================
 
-                // Reset form
-                leadForm.reset();
+                // DEMO MODE: Show success message (no actual email sent)
+                const successMessage = document.getElementById('form-success');
+                successMessage.classList.remove('hidden');
+
+                // Disable form fields
+                leadForm.querySelectorAll('input, textarea, button[type="submit"]').forEach(el => {
+                    if (el.type !== 'submit') el.disabled = true;
+                    el.style.opacity = '0.5';
+                });
+
+                // Reset after 5 seconds (for demo purposes - REMOVE when using EmailJS)
+                setTimeout(() => {
+                    leadForm.reset();
+                    successMessage.classList.add('hidden');
+                    leadForm.querySelectorAll('input, textarea, button[type="submit"]').forEach(el => {
+                        el.disabled = false;
+                        el.style.opacity = '1';
+                    });
+                }, 5000);
+
+                console.log('Form data ready for backend:', { fullname, company, email, message });
+
+                // ============================================================================
             });
         }
+
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = this.querySelector('.faq-icon');
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        const otherAnswer = item.querySelector('.faq-answer');
+                        const otherIcon = item.querySelector('.faq-icon');
+                        const otherButton = item.querySelector('.faq-question');
+                        otherAnswer.classList.add('hidden');
+                        otherIcon.style.transform = 'rotate(0deg)';
+                        otherButton.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Toggle current FAQ item
+                if (isExpanded) {
+                    answer.classList.add('hidden');
+                    icon.style.transform = 'rotate(0deg)';
+                    this.setAttribute('aria-expanded', 'false');
+                } else {
+                    answer.classList.remove('hidden');
+                    icon.style.transform = 'rotate(180deg)';
+                    this.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
     </script>
 
 </body>
